@@ -1,39 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-function Greeting() {
+function BookList() {
   return (
     <>
-      <h1>Hello World!</h1>
-      <p>Enough talk, let's act</p>
-      <p>It's never too late, just believe in yourself</p>
-
-      {/* Camel case for HTML Properties */}
-      <div
-        tabIndex={1}
-        className="camel-case"
-      >
-        <label htmlFor="name">Name</label>
-        <input
-          readOnly={true}
-          id="name"
-        />
-      </div>
-
-      {/* Nesting of Components */}
-      <Person />
-      <Message />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
     </>
   )
 }
 
-function Person() {
-  return <h2>John Doe</h2>
-}
-
-function Message() {
-  return <p>There are no accidents!</p>
+function Book() {
+  return (
+    <article>
+      <img src="" />
+      <h2>Title Goes here</h2>
+      <p>Author: </p>
+    </article>
+  )
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(<Greeting />)
+root.render(<BookList />)
