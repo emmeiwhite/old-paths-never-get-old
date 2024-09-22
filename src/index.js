@@ -19,8 +19,20 @@ function Greeting() {
           id="name"
         />
       </div>
+
+      {/* Nesting of Components */}
+      <Person />
+      <Message />
     </>
   )
+}
+
+function Person() {
+  return <h2>John Doe</h2>
+}
+
+function Message() {
+  return <p>There are no accidents!</p>
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
