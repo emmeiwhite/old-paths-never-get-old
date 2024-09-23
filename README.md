@@ -477,7 +477,7 @@ const Author = () => (
 )
 ```
 
-- css rules still apply (inline vs external css)
+- CSS rules still apply (inline vs external css)
 
 ```css
 .book h4 {
@@ -511,7 +511,7 @@ const Author = () => {
 #### JSX - Javascript
 
 - refactor to single book component (personal preference)
-- remove inline css
+- remove inline CSS
 
 ```js
 const Book = () => {

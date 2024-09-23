@@ -11,38 +11,30 @@ function BookList() {
   )
 }
 
+// Writing JS within JSX: We use curly brackets and use expressions within. Remember: An expression must return a value
+
+let title = 'KIM’S LOST WORDS: A journey for justice, from the other side'
 function Book() {
+  let author = 'JAMAL T. MILLWOOD'
   return (
     <article className="book">
-      <Image />
-      <Title />
-      <Author />
+      <img
+        src="./images/book-1.jpg"
+        className="author-img"
+        alt="book"
+      />
+      <h2 className="title">{title}</h2>
+      <h4
+        className="author"
+        style={{ color: '#617d98', fontSize: '0.75rem', marginTop: '0.5rem' }}
+      >
+        <strong>Author:</strong> {author}
+      </h4>
     </article>
   )
 }
 
 // Let's further create sub-components for Book
-
-function Image() {
-  return (
-    <img
-      src="./images/book-1.jpg"
-      className="author-img"
-    />
-  )
-}
-
-function Title() {
-  return <h2 className="title">KIM’S LOST WORDS: A journey for justice, from the other side</h2>
-}
-
-function Author() {
-  return (
-    <p className="author">
-      <strong>Author:</strong> JAMAL T. MILLWOOD
-    </p>
-  )
-}
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(<BookList />)
