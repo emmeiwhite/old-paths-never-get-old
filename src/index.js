@@ -1,18 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import './index.css'
 
 function BookList() {
   return (
-    <>
+    <section className="booklist">
       <Book />
       <Book />
-    </>
+    </section>
   )
 }
 
 function Book() {
   return (
-    <article>
+    <article className="book">
       <Image />
       <Title />
       <Author />
@@ -24,18 +25,21 @@ function Book() {
 
 function Image() {
   return (
-    <img src="https://images-na.ssl-images-amazon.com/images/I/61njsKWSC9L._AC_UL900_SR900,600_.jpg" />
+    <img
+      src="./images/book-1.jpg"
+      className="author-img"
+    />
   )
 }
 
 function Title() {
-  return <h2>KIM’S LOST WORDS: A journey for justice, from the other side</h2>
+  return <h2 className="title">KIM’S LOST WORDS: A journey for justice, from the other side</h2>
 }
 
 function Author() {
   return (
-    <p>
-      Author: <strong>JAMAL T. MILLWOOD</strong>
+    <p className="author">
+      <strong>Author:</strong> JAMAL T. MILLWOOD
     </p>
   )
 }
