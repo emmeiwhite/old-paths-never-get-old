@@ -2,33 +2,30 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 
-const book1 = {
-  author: 'Jordan Moore',
-  title: 'Interesting Facts For Curious Minds',
-  image: './images/book-1.jpg'
-}
-
-const book2 = {
-  author: 'James Clear',
-  title: 'Atomic Habits',
-  image: 'https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL._AC_UL900_SR900,600_.jpg'
-}
+// Assuming that we have fetched the data from an API
+// Remember a general principle: Fetch & Render
+const books = [
+  {
+    author: 'Jordan Moore',
+    title: 'Interesting Facts For Curious Minds',
+    img: './images/book-1.jpg',
+    id: 1
+  },
+  {
+    author: 'James Clear',
+    title: 'Atomic Habits',
+    img: 'https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL._AC_UL900_SR900,600_.jpg',
+    id: 2
+  }
+]
 
 function BookList() {
   return (
     <section className="booklist">
-      <Book
-        image={book1.image}
-        author={book1.author}
-        title={book1.title}
-      >
-        <p>This book is highly recommended!</p>
-      </Book>
-      <Book
-        image={book2.image}
-        author={book2.author}
-        title={book2.title}
-      />
+      {/* Iterate over list */}
+      {books.map(book => (
+        <Book {...book} />
+      ))}
     </section>
   )
 }
@@ -37,11 +34,11 @@ function BookList() {
 
 // Every component in React, has a props object. First steps towards making a component re-usable & dding dynamism to a component
 
-function Book({ image, author, title, children }) {
+function Book({ img, author, title, children }) {
   return (
     <article className="book">
       <img
-        src={image}
+        src={img}
         className="author-img"
         alt={title}
       />
