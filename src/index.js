@@ -2,15 +2,31 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 
+const book1 = {
+  author: 'Jordan Moore',
+  title: 'Interesting Facts For Curious Minds',
+  image: './images/book-1.jpg'
+}
+
+const book2 = {
+  author: 'James Clear',
+  title: 'Atomic Habits',
+  image: 'https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL._AC_UL900_SR900,600_.jpg'
+}
+
 function BookList() {
   return (
     <section className="booklist">
       <Book
-        image={'./images/book-1.jpg'}
-        author="JAMAL T. MILLWOOD"
-        title="KIM’S LOST WORDS: A journey for justice, from the other side"
+        image={book1.image}
+        author={book1.author}
+        title={book1.title}
       />
-      <Book />
+      <Book
+        image={book2.image}
+        author={book2.author}
+        title={book2.title}
+      />
     </section>
   )
 }
@@ -18,6 +34,7 @@ function BookList() {
 // Writing JS within JSX: We use curly brackets and use expressions within. Remember: An expression must return a value
 
 // Every component in React, has a props object. First steps towards making a component re-usable & dding dynamism to a component
+
 function Book(props) {
   return (
     <article className="book">
