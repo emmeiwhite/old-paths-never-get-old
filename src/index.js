@@ -35,8 +35,7 @@ function BookList() {
 
 // Every component in React, has a props object. First steps towards making a component re-usable & dding dynamism to a component
 
-function Book(props) {
-  const { image, author, title } = props
+function Book({ image, author, title }) {
   return (
     <article className="book">
       <img
