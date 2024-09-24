@@ -24,7 +24,10 @@ function BookList() {
     <section className="booklist">
       {/* Iterate over list */}
       {books.map(book => (
-        <Book {...book} />
+        <Book
+          {...book}
+          key={book.id}
+        />
       ))}
     </section>
   )
