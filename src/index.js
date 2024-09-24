@@ -21,7 +21,9 @@ function BookList() {
         image={book1.image}
         author={book1.author}
         title={book1.title}
-      />
+      >
+        <p>This book is highly recommended!</p>
+      </Book>
       <Book
         image={book2.image}
         author={book2.author}
@@ -35,7 +37,7 @@ function BookList() {
 
 // Every component in React, has a props object. First steps towards making a component re-usable & dding dynamism to a component
 
-function Book({ image, author, title }) {
+function Book({ image, author, title, children }) {
   return (
     <article className="book">
       <img
@@ -50,6 +52,7 @@ function Book({ image, author, title }) {
       >
         <strong>Author:</strong> {author}
       </h4>
+      {children}
     </article>
   )
 }
