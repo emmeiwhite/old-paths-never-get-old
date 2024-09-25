@@ -2,24 +2,34 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 
-// Assuming that we have fetched the data from an API
-// Remember a general principle: Fetch & Render
-const books = [
-  {
-    author: 'Jordan Moore',
-    title: 'Interesting Facts For Curious Minds',
-    img: './images/book-1.jpg',
-    id: 1
-  },
-  {
-    author: 'James Clear',
-    title: 'Atomic Habits',
-    img: 'https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL._AC_UL900_SR900,600_.jpg',
-    id: 2
-  }
-]
-
 function BookList() {
+  // Assuming that we have fetched the data from an API
+  // Remember a general principle: Fetch & Render
+  const books = [
+    {
+      author: 'Jordan Moore',
+      title: 'Interesting Facts For Curious Minds',
+      img: './images/book-1.jpg',
+      id: 1
+    },
+    {
+      author: 'James Clear',
+      title: 'Atomic Habits',
+      img: 'https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL._AC_UL900_SR900,600_.jpg',
+      id: 2
+    }
+  ]
+
+  const someValue = 'shakeAndBake'
+  const displayValue = () => {
+    console.log(someValue)
+  }
+
+  const getBook = id => {
+    const currentBook = books.find(book => book.id === id)
+    console.log(currentBook)
+  }
+
   return (
     <section className="booklist">
       {/* Iterate over list */}
@@ -27,6 +37,9 @@ function BookList() {
         <Book
           {...book}
           key={book.id}
+          someValue={someValue}
+          displayValue={displayValue}
+          getBook={getBook}
         />
       ))}
     </section>
@@ -37,7 +50,7 @@ function BookList() {
 
 // Every component in React, has a props object. First steps towards making a component re-usable & dding dynamism to a component
 
-function Book({ img, author, title, children }) {
+function Book({ img, author, title, children, someValue, displayValue, id, getBook }) {
   const [price, setPrice] = useState(0)
   const [userName, setUserName] = useState('')
   function handleChange(e) {
@@ -53,6 +66,9 @@ function Book({ img, author, title, children }) {
   const handleLoginForm = e => {
     e.preventDefault()
     console.log('Form is submitted & user details are sent to the backend')
+
+    // This function came as props from the parent component
+    displayValue()
 
     //   clear the form values
     setUserName('')
@@ -77,6 +93,8 @@ function Book({ img, author, title, children }) {
         value={price || ''}
         name="price"
       />
+
+      <button onClick={() => getBook(id)}>Get Book Details</button>
 
       {price > 0 && <p>Price: {price}</p>}
 
