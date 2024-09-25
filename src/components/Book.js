@@ -1,5 +1,16 @@
 import React, { useState } from 'react'
-function Book({ img, author, title, children, someValue, displayValue, id, getBook }) {
+
+function Book({
+  img,
+  author,
+  title,
+  children,
+  someValue,
+  displayValue,
+  id,
+  getBook,
+  serialNumber
+}) {
   const [price, setPrice] = useState(0)
   const [userName, setUserName] = useState('')
 
@@ -23,8 +34,13 @@ function Book({ img, author, title, children, someValue, displayValue, id, getBo
     //   clear the form values
     setUserName('')
   }
+
   return (
     <article className="book">
+      {/* serial-number */}
+      <div className="serial-number">
+        <span>{serialNumber + 1}</span>
+      </div>
       <img
         src={img}
         className="author-img"

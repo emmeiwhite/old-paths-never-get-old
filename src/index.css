@@ -32,6 +32,7 @@ body {
   border-radius: 1rem;
   padding: 2rem;
   text-align: center;
+  position: relative;
 }
 
 .author-img {
@@ -48,4 +49,18 @@ body {
 
 .author {
   font-size: 1rem;
+}
+
+.serial-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  background-color: rgb(159, 1, 1);
+  color: white;
+  font-size: 1rem;
+  clip-path: polygon(0% 0%, 100% 1%, 88% 49%, 75% 100%, 0% 100%);
 }

@@ -21,13 +21,14 @@ function BookList() {
   return (
     <section className="booklist">
       {/* Iterate over list */}
-      {books.map(book => (
+      {books.map((book, index) => (
         <Book
           {...book}
           key={book.id}
           someValue={someValue}
           displayValue={displayValue}
           getBook={getBook}
+          serialNumber={index}
         />
       ))}
     </section>
