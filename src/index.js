@@ -19,19 +19,22 @@ function BookList() {
   }
 
   return (
-    <section className="booklist">
-      {/* Iterate over list */}
-      {books.map((book, index) => (
-        <Book
-          {...book}
-          key={book.id}
-          someValue={someValue}
-          displayValue={displayValue}
-          getBook={getBook}
-          serialNumber={index}
-        />
-      ))}
-    </section>
+    <>
+      <h1 className="heading">Best Selling Books</h1>
+      <section className="booklist">
+        {/* Iterate over list */}
+        {books.map((book, index) => (
+          <Book
+            {...book}
+            key={book.id}
+            someValue={someValue}
+            displayValue={displayValue}
+            getBook={getBook}
+            serialNumber={index}
+          />
+        ))}
+      </section>
+    </>
   )
 }
 

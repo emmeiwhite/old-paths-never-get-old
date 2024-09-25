@@ -39,7 +39,7 @@ function Book({
     <article className="book">
       {/* serial-number */}
       <div className="serial-number">
-        <span>{serialNumber + 1}</span>
+        <span># {serialNumber + 1}</span>
       </div>
       <img
         src={img}
@@ -53,7 +53,7 @@ function Book({
       >
         <strong>Author:</strong> {author}
       </h4>
-      <input
+      {/* <input
         type="number"
         onChange={handleChange}
         value={price || ''}
@@ -76,7 +76,7 @@ function Book({
           value={userName}
         />
         <button>Login</button>
-      </form>
+      </form> */}
     </article>
   )
 }
