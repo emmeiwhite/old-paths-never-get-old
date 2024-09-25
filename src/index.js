@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 
@@ -38,6 +38,25 @@ function BookList() {
 // Every component in React, has a props object. First steps towards making a component re-usable & dding dynamism to a component
 
 function Book({ img, author, title, children }) {
+  const [price, setPrice] = useState(0)
+  const [userName, setUserName] = useState('')
+  function handleChange(e) {
+    console.log('Name of input:', e.target.name)
+    console.log('Value of input:', e.target.value)
+    setPrice(e.target.value)
+  }
+
+  const formStyles = {
+    margin: '1rem 0'
+  }
+
+  const handleLoginForm = e => {
+    e.preventDefault()
+    console.log('Form is submitted & user details are sent to the backend')
+
+    //   clear the form values
+    setUserName('')
+  }
   return (
     <article className="book">
       <img
@@ -52,7 +71,28 @@ function Book({ img, author, title, children }) {
       >
         <strong>Author:</strong> {author}
       </h4>
-      {children}
+      <input
+        type="number"
+        onChange={handleChange}
+        value={price || ''}
+        name="price"
+      />
+
+      {price > 0 && <p>Price: {price}</p>}
+
+      <form
+        style={formStyles}
+        onSubmit={handleLoginForm}
+      >
+        <h2>Login</h2>
+        <input
+          type="text"
+          onChange={e => setUserName(e.target.value)}
+          name="userName"
+          value={userName}
+        />
+        <button>Login</button>
+      </form>
     </article>
   )
 }
